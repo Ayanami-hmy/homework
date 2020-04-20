@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int clock1[9]={0};
+    int op[9]={0};
+    int number=0;
+    for(int i=0;i<9;i++){
+        cin>>clock1[i];
+    }
+    for(op[0]=0;op[0]<4;op[0]++){//完全就是个遍历，全考虑一遍，进行0 1 2 3次操作，（4次操作就回去了）
+        for(op[1]=0;op[1]<4;op[1]++){
+            for(op[2]=0;op[2]<4;op[2]++){
+                for(op[3]=0;op[3]<4;op[3]++){
+                    for(op[4]=0;op[4]<4;op[4]++){
+                        for(op[5]=0;op[5]<4;op[5]++){
+                            for(op[6]=0;op[6]<4;op[6]++){
+                                for(op[7]=0;op[7]<4;op[7]++){
+                                    for(op[8]=0;op[8]<4;op[8]++){
+                                        number=0;
+                                        number+=(clock1[0]+op[0]+op[1]+op[3])%4;
+                                        number+=(clock1[1]+op[0]+op[1]+op[2]+op[4])%4;
+                                        number+=(clock1[2]+op[1]+op[2]+op[5])%4;
+                                        number+=(clock1[3]+op[0]+op[3]+op[4]+op[6])%4;
+                                        number+=(clock1[4]+op[0]+op[2]+op[4]+op[6]+op[8])%4;
+                                        number+=(clock1[5]+op[2]+op[4]+op[5]+op[8])%4;
+                                        number+=(clock1[6]+op[3]+op[6]+op[7])%4;
+                                        number+=(clock1[7]+op[4]+op[6]+op[7]+op[8])%4;
+                                        number+=(clock1[8]+op[5]+op[7]+op[8])%4;
+                                        if(number==0){
+                                            for(int i=0;i<9;i++){
+                                                if(op[i]!=0){
+                                                    for(int j=op[i];j>0;j--){
+                                                        cout<<i+1<<" ";
+                                                    }
+                                                }
+                                            }
+                                            return 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+}
